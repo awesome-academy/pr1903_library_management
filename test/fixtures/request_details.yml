@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  request_borrow_id: 1
+  book_id: 1
+  quanity: 1
+  status: 1
+  book: one
+
+two:
+  request_borrow_id: 1
+  book_id: 1
+  quanity: 1
+  status: 1
+  book: two
