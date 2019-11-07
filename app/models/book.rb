@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  has_one_attached :picture
   belongs_to :author
   has_many :request_details
   has_many :follow_books
