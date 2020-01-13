@@ -1,0 +1,15 @@
+<p class="name test-follow col-xs-4">
+  <% if user_signed_in? %>
+    <% pre_follow = current_user.follow_books.find_by(book_id: @book.id) %>
+    <% if current_user.follow_books.find_by(book_id: @book.id) %>
+      <%= link_to "Unfollow", book_follow_book_path(@book, pre_follow), method: :delete, class: "btn btn-primary unfollow", remote: true %>
+    <% else %>
+      <%= link_to "Follow", book_follow_books_path(@book), method: :post, class: "btn btn-primary follow", remote: true %>
+    <% end %>
+  <% else %>
+    <%= link_to "Follow", signin_path, alert: "Hay dang nhap de follow" %>
+  <% end %>
+</p>
+<p class="col-xs-8" id="follow_count">
+  <%= @book.follow_books.count %>
+</p>

@@ -1,0 +1,41 @@
+<% provide(:title,"Book") %>
+<h1><%= @author.name %></h1>
+
+<main class="main">
+  <div class="container">
+    <div class="row">
+      <div id="ct100_divCenter" class="center-side col-md-8">
+        <%= render "list_book_of_author"%>
+      </div>
+      <div id="ct100_divRight" class="right-side col-md-4 cmszone">
+        <div class="box darkBox genres hidden-sm hidden-xs Module Module-179">
+          <div class="author">
+            <div class="lead"> About me </div>
+            <div class="avatar">
+              <% if @author.avatar.attached? %>
+                <%= image_tag(@author.avatar, class: "book_img") %>
+              <% end %>
+              <div id="follow_author">
+                <% if user_signed_in? %>
+                  <% pre_follow = current_user.follow_authors.find_by(author_id: @author.id) %>
+                  <% if current_user.follow_authors.find_by(author_id: @author.id) %>
+                    <%= link_to "Unfollow", author_follow_author_path(@author, pre_follow), method: :delete, class: "btn btn-primary unfollow_author", remote: true %>
+                  <% else %>
+                    <%= link_to "Follow", author_follow_authors_path(@author), method: :post, class: "btn btn-primary follow_author", remote: true %>
+                  <% end %>
+                <% else %>
+                  <%= link_to "Follow", signin_path, alert: "Hay dang nhap de follow" %>
+                <% end %>
+              </div>
+              <div id="follow_count">
+                <%= @author.follow_authors.count %>
+              </div>
+            </div>
+            <div class="author_name"><h3><b><%= @author.name %></b></h3></div>
+            <div class="desciption"><%= @author.intro_author %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main> 

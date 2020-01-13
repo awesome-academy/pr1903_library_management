@@ -1,0 +1,2 @@
+$('#follow_author').html("<%= j link_to 'Follow', author_follow_authors_path(@author), method: :post, class: 'btn btn-primary follow_author', remote: true %>");
+$('#follow_count').html("<%= @author.follow_authors.count %>")

@@ -1,0 +1,37 @@
+<main class="main">
+  <div class="container">
+    <div class="row">
+      <div id="ct100_divCenter" class="center-side col-md-8">
+        <%= render "authors/list_author", author: @authors %>
+      </div>
+      <div id="ct100_divRight" class="right-side col-md-4 cmszone">
+        <div class="comic-wrap Module Module-168">
+          <div class="ModuleContent">
+            <div class="box-tab box darkBox">
+            <h2 class="module-title"><b> Author duoc follow nhieu nhat </b></h2>
+            <div class="tab-pane">
+              <ul class="list-unstyled">
+                <% @author_ids[0...5].each do |id| %>
+                  <% @author_follow_desc = Author.find(id) %>
+                  <li class="clearfix">
+                    <div class="t-item">
+                      <%= link_to(@author_follow_desc, class: "thumb") do %>
+                        <% if @author_follow_desc.avatar.attached? %>
+                          <%= image_tag(@author_follow_desc.avatar, class: "lazy") %>
+                        <% end %>
+                      <% end %>
+                      <h3 class="title"><%= link_to(@author_follow_desc.name, @author_follow_desc) %></h3>
+                      <p class="chapter top">Follow: <%= @author_follow_desc.follow_authors.count %></p>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= will_paginate %>
+</main> 

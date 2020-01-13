@@ -1,0 +1,2 @@
+$('#follow_author').html("<%= j link_to 'Unfollow', author_follow_author_path(@author, @follow_author), method: :delete, class: 'btn btn-primary unfollow_author', remote: true %>");
+$('#follow_count').html("<%= @author.follow_authors.count %>")
