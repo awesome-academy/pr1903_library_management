@@ -69,3 +69,14 @@ gem "bootstrap-sass", "~> 3.3.7"
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "jquery-rails"
+
+gem "ransack"
+
+gem "rails_admin"
+
+gem "ckeditor"
+gem "mini_magick"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
+
