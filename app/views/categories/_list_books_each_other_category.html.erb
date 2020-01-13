@@ -11,7 +11,7 @@
               <div class="image">
                 <%= link_to(book_path, class: "link_to_item") do %>
                   <% if book.picture.attached? %>
-                    <%= image_tag(tour.picture, class: "book_img") %>
+                    <%= image_tag(book.picture, class: "book_img") %>
                   <% end %>
                 <% end %>
               </div>

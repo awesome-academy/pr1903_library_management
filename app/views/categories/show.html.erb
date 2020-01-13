@@ -13,7 +13,7 @@
             <h2 class="module-title"><b> Category <b></h2>
             <ul class="nav">
               <% @categories.each do |category| %>
-              <li> <%= link_to(category.title, root_path, class: "category_item") %> </li>
+              <li> <%= link_to(category.title, category, class: "category_item") %> </li>
               <% end %>
             </ul>
           </div>
