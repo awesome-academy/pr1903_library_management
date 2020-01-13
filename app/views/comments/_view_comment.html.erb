@@ -1,0 +1,19 @@
+<div class="author">
+  <% if comment.user.avatar.attached? %>
+  <div style="width:40px; height:auto">
+    <%= image_tag(comment.user.avatar, style:"max-width:40px") %>
+  </div>
+  <% else %>
+  <%= gravatar_for comment.user, size: 50 %>
+  <% end %>
+</div>
+<div class="journalitem">
+  <div class="journalsummary">
+    <span class="authorname"><%= comment.user.name %></span>
+    <abbr><%= comment.created_at %></abbr>
+    <div class="summary">
+      <%= comment.content %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+      <%= link_to "Delete", book_comment_path(@book), method: :delete, remote: true %>
+    </div>
+  </div>
+</div>
