@@ -1,26 +1,39 @@
-<nav class="navbar navbar-inverse">
-  <div class="container">
-    <div id="navbar">
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Home', root_path %></li>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
+<header class="header">
+  <div id="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Home', root_path %></li>
+        </ul>
+        <div class="navbar-form navbar-left hidden-xs search-box comicsearchbox">
+          <div class="input-group">
+            <%= search_form_for @search do |f| %>
+            <%= f.search_field :name_cont, placeholder: "Search book", class: "searchinput form-control" %>
+            <div class="input-group-btn">
+              <%= f.submit class: "searchbutton btn btn-default", value: "" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <ul class="nav-account list-inline hidden-xs pull-right">
         <% if user_signed_in? %>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <%= current_user.name %>
-              <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><%= link_to 'Profile', current_user %></li>
-              <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <%= current_user.name %>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><%= link_to 'Profile', current_user %></li>
+            <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
         <% else %>
-          <li><%= link_to 'Log In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li><%= link_to 'Log In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
         <% end %>
       </ul>
+      
     </div>
   </div>
-</nav>
+</header>
