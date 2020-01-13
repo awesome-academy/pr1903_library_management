@@ -1,0 +1,25 @@
+<% provide(:title, "Add to cart") %>
+<% provide(:button_text, 'Create bill') %>
+
+<h2>Create bill</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for @request_detail do |f| %>
+    <div class="field">
+      <%= f.label :book_id %><br />
+      <span class="disable-view form-control"><%= @request_detail.book.name %></span>
+      <%= f.hidden_field :book_id, class: "form-control", value: @request_detail.book.id %>
+      <%= f.hidden_field :request_borrow_id, class: "form-control", value: @request_detail.request_borrow.id %>
+    </div>
+
+    <div class="field">
+      <%= f.label :quanity %><br />
+      <%= f.text_field :quanity, class: "form-control" %>
+    </div><br>
+    <div class="field">
+      <%= f.submit "Add to cart", class: "btn btn-primary" %>
+    </div>
+    <% end %>
+  </div>
+</div>
