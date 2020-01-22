@@ -1,0 +1,15 @@
+<p class="name test-like col-xs-4">
+  <% if user_signed_in? %>
+  <% pre_like = current_user.likes.find_by(book_id: @book.id) %>
+  <% if current_user.likes.find_by(book_id: @book.id) %>
+  <%= link_to "Dislike", book_like_path(@book, pre_like), method: :delete, class: "btn btn-primary dislike", remote: true %>
+  <% else %>
+  <%= link_to "Like", book_likes_path(@book), method: :post, class: "btn btn-primary like", remote: true %>
+  <% end %>
+  <% else %>
+  <%= link_to "Like", signin_path, alert: "Hay dang nhap de like" %>
+  <% end %>
+</p>
+<p class="col-xs-8" id="like_count">
+  <%= @book.likes.count %>
+</p>
