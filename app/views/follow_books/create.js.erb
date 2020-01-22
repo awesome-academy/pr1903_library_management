@@ -1,0 +1,2 @@
+$('.test-follow').html("<%= j link_to 'Unfollow', book_follow_book_path(@book, @follow_book), method: :delete, class: 'btn btn-primary unfollow', remote: true %>");
+$('#follow_count').html("<%= @book.follow_books.count %>")

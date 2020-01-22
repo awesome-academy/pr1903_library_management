@@ -1,0 +1,2 @@
+$('.test-follow').html("<%= j link_to 'Follow', book_follow_books_path(@book), method: :post, class: 'btn btn-primary follow', remote: true %>");
+$('#follow_count').html("<%= @book.follow_books.count %>")
