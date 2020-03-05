@@ -1,0 +1,5 @@
+<% if @request_detail.quanity <= (@book.quanity + @request_detail.quanity) %>
+  $('#add_remove_book').html("<%= j link_to 'Remove', book_request_detail_path(@book.id, @request_detail), method: :delete, class: 'btn btn-primary', remote: true %>");
+<% else %>
+  $('#check_quanity').append("Not enough book");
+<% end %>
